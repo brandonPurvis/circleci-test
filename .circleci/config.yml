@@ -5,6 +5,7 @@ jobs:
       - image: circleci/python:3.7-stretch-node-browsers
     steps:
       - checkout
-      - run:
-        name: Download Binary Files
-        command: ./build_layer.sh
+      - run: chmod +x build_layer.sh
+      - run: ./build_layer.sh
+      - run: echo $(ls layer)
+      - run: echo $(ls layer/bin)
