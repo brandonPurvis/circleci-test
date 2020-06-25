@@ -34,3 +34,14 @@ jobs:
       - aws-s3/copy:
           from: selenium_layer.zip
           to: 's3://bcpmax-apartment-artifacts/artifacts/selenium-layer.zip'
+
+  deploy:
+    docker:
+      - image: hashicorp/terraform:light
+    environment:
+      BASH_ENV: /root/.bashrc
+      TERRAFORM_ENV: ~/project/
+    steps:
+      - checkout
+      - run: |
+          echo $(terraform --version)
