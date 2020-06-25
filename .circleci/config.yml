@@ -1,13 +1,11 @@
 version: 2.1
 jobs:
-  build:
+  Download-Selenium-Dependencies:
     docker:
       - image: circleci/python:3.7-stretch-node-browsers
     steps:
       - checkout
-      - run:
-        name: Run Build Script
-        command: |
+      - run: |
           chmod +x build_layer.sh
           ./build_layer.sh
       - run: echo $(ls layer)
