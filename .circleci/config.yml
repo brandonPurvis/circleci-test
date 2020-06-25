@@ -46,7 +46,7 @@ jobs:
       - run: |
           echo $(terraform --version)
 
-workflow:
+workflows:
   version: 2
   main:
     jobs:
