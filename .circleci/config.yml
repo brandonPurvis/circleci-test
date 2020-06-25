@@ -20,5 +20,6 @@ jobs:
           zip -r selenium_layer.zip layer
 
       - run: |
+          echo $(ls)
           echo $(ls layer)
           echo $(ls layer/bin)
