@@ -44,14 +44,11 @@ jobs:
     steps:
       - checkout
       - run: |
-          echo $TERRAFORM_TOKEN | terraform login
+          echo "y $TERRAFORM_TOKEN" | terraform login
           echo $(terraform --version)
 
 workflows:
   version: 2
   main-workflow:
     jobs:
-      - build
-      - deploy:
-         requires:
-           - build
+      - deploy
