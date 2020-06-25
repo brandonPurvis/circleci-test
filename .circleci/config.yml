@@ -44,7 +44,14 @@ jobs:
     steps:
       - checkout
       - run: |
-          echo "y\n$(TERRAFORM_TOKEN)" | terraform login
+          touch .terraformrc
+          echo "credentials \"app.terraform.io\" {" >> .terraformrc
+          echo "    token=${TERRAFORM_TOKEN}" >> .terraformrc
+          echo "}" >> .terraformrc
+
+          export TF_CLI_CONFIG_FILE=$(pwd)/.terrafromrc
+
+          echo $(cat .terrafromrc)
           echo $(terraform --version)
 
 workflows:
