@@ -26,8 +26,8 @@ jobs:
           ./build_layer.sh
 
       - run: |
-        echo $(ls layer)
-        echo $(ls layer/bin)
+          echo $(ls layer)
+          echo $(ls layer/bin)
 
 
 workflows:
