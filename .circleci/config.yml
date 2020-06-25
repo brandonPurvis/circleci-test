@@ -45,10 +45,7 @@ jobs:
       - checkout
       - run: |
           touch .terraformrc
-          printf  "credentials \"app.terraform.io\" {\n" >> .terraformrc
-          printf  "    token=${TERRAFORM_TOKEN}" >> .terraformrc
-          printf  "\n}" >> .terraformrc
-
+          printf  "credentials \"app.terraform.io\" {\n    token = \"${TERRAFORM_TOKEN}\"\n}" >> .terraformrc
           TF_CLI_CONFIG_FILE=$(pwd)/.terraformrc
           echo $TF_CLI_CONFIG_FILE
           echo $(cat $TF_CLI_CONFIG_FILE)
