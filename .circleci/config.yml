@@ -50,7 +50,7 @@ workflows:
   version: 2
   main-workflow:
     jobs:
-      - build:
+      - build
       - deploy:
-        requires:
-          - build
+         requires:
+           - build
