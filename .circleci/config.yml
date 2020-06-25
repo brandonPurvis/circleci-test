@@ -1,20 +1,10 @@
 version: 2.1
 jobs:
-  Download-Selenium-Dependencies:
+  build:
     docker:
       - image: circleci/python:3.7-stretch-node-browsers
     steps:
       - checkout
-      - run: |
-          chmod +x build_layer.sh
-          ./build_layer.sh
-      - run: echo $(ls layer)
-      - run: echo $(ls layer/bin)
-
-  Download-Selenium:
-    docker:
-      - image: circleci/python:3.7-stretch-node-browsers
-    steps:
       - run: |
           mkdir layer
 
@@ -28,11 +18,3 @@ jobs:
       - run: |
           echo $(ls layer)
           echo $(ls layer/bin)
-
-
-workflows:
-  version: 2
-  Main_Workflow:
-    jobs:
-      - Download-Selenium-Dependencies
-      - Download-Selenium
