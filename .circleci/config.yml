@@ -45,11 +45,11 @@ jobs:
       - checkout
       - run: |
           touch .terraformrc
-          echo "credentials \"app.terraform.io\" {" >> .terraformrc
+          echo "credentials \"app.terraform.io\" {\n" >> .terraformrc
           echo "    token=${TERRAFORM_TOKEN}" >> .terraformrc
-          echo "}" >> .terraformrc
+          echo "\n}" >> .terraformrc
 
-          export TF_CLI_CONFIG_FILE=$(pwd)/.terrafromrc
+          export TF_CLI_CONFIG_FILE=.terrafromrc
 
           echo $(cat .terraformrc)
           echo $(terraform --version)
