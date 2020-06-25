@@ -53,6 +53,8 @@ jobs:
 
           echo $(cat .terraformrc)
           echo $(terraform --version)
+          terraform init
+          terraform plan
 
 workflows:
   version: 2
