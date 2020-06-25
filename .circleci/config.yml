@@ -45,15 +45,14 @@ jobs:
       - checkout
       - run: |
           touch .terraformrc
-          echo "credentials \"app.terraform.io\" {" >> .terraformrc
-          echo "    token=${TERRAFORM_TOKEN}" >> .terraformrc
-          echo "}" >> .terraformrc
+          printf  "credentials \"app.terraform.io\" {\n" >> .terraformrc
+          printf  "    token=${TERRAFORM_TOKEN}" >> .terraformrc
+          printf  "\n}" >> .terraformrc
 
           TF_CLI_CONFIG_FILE=$(pwd)/.terraformrc
           echo $TF_CLI_CONFIG_FILE
-          echo $(cat .terraformrc)
+          echo $(cat $TF_CLI_CONFIG_FILE)
           echo $(terraform --version)
-          terraform login
           terraform init
           terraform plan
 
