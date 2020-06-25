@@ -50,7 +50,11 @@ workflows:
   version: 2
   main:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore:
+                - develop
       - deploy:
         requires:
           - build
