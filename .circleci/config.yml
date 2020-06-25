@@ -6,14 +6,18 @@ jobs:
     steps:
       - checkout
       - run: |
-          mkdir layer
+          mkdir -p layer/bin
+          mkdir -p layer/python/lib/python3.7/site-packages
 
       - run: |
-          pip install -r requirements.txt -t layer
+          pip install -r requirements.txt -t layer/python/lib/python3.7/site-packages
 
       - run: |
           chmod +x build_layer.sh
           ./build_layer.sh
+
+      - run: |
+          zip -r selenium_layer.zip layer
 
       - run: |
           echo $(ls layer)
