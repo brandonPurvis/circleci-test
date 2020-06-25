@@ -49,8 +49,8 @@ jobs:
           echo "    token=${TERRAFORM_TOKEN}" >> .terraformrc
           echo "}" >> .terraformrc
 
-          TF_CLI_CONFIG_FILE=.terrafromrc
-
+          TF_CLI_CONFIG_FILE=$(pwd)/.terrafromrc
+          echo $TF_CLI_CONFIG_FILE
           echo $(cat .terraformrc)
           echo $(terraform --version)
           terraform init
