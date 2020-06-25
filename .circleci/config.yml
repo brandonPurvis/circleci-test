@@ -44,7 +44,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          echo "y $TERRAFORM_TOKEN" | terraform login
+          echo "y" | terraform login
           echo $(terraform --version)
 
 workflows:
