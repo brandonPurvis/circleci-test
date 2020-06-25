@@ -53,6 +53,7 @@ jobs:
           echo $TF_CLI_CONFIG_FILE
           echo $(cat .terraformrc)
           echo $(terraform --version)
+          terraform login
           terraform init
           terraform plan
 
