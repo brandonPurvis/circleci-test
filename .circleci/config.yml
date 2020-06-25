@@ -10,3 +10,9 @@ jobs:
           ./build_layer.sh
       - run: echo $(ls layer)
       - run: echo $(ls layer/bin)
+
+workflows:
+  version: 2
+  Main_Workflow:
+    jobs:
+      - Download-Selenium-Dependencies
