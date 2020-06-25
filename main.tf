@@ -2,7 +2,7 @@ terraform {
   backend "remote" {
     hostname = "app.terraform.io"
     organization = "bcpmax-personal"
-    "workspaces" {
+    workspaces {
       name = "circleci-test"
     }
   }
