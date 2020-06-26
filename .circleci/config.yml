@@ -50,7 +50,7 @@ jobs:
           echo $TF_CLI_CONFIG_FILE
           echo $(cat $TF_CLI_CONFIG_FILE)
           echo $(terraform --version)
-          terraform init
+          terraform init --backend-config="token=${TERRAFORM_TOKEN}"
           terraform plan
 
 workflows:
