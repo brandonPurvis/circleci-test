@@ -55,4 +55,11 @@ workflows:
   version: 2
   main-workflow:
     jobs:
-      - deploy
+      - build
+      - deploy:
+         requires:
+            - build
+         filters:
+            branches:
+               only:
+                  - master
