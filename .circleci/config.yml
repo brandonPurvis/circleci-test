@@ -49,7 +49,7 @@ jobs:
       - run: |
           terraform plan
       - run: |
-          terraform apply
+          terraform apply -auto-approve
 
 workflows:
   version: 2
