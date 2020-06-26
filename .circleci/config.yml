@@ -10,27 +10,16 @@ jobs:
     steps:
       - checkout
       - run: |
-          mkdir -p layer/bin
-          mkdir -p layer/python/lib/python3.7/site-packages
-
-      - run: |
-          pip install -r requirements.txt -t layer/python/lib/python3.7/site-packages
-
-      - run: |
           chmod +x build_layer.sh
           ./build_layer.sh
-
       - run: |
           zip -r selenium_layer.zip layer
-
       - run: |
           echo $(ls)
           echo $(ls layer)
           echo $(ls layer/bin)
-
       - run: |
           export AWS_REGION="us-east-1"
-
       - aws-s3/copy:
           from: selenium_layer.zip
           to: 's3://bcpmax-apartment-artifacts/artifacts/selenium-layer.zip'
